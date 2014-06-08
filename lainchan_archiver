@@ -1,4 +1,6 @@
-archiveDir="$HOME/Documents/Projects/lainchan_archiver/archives/"
+#!/bin/bash
+
+archiveDir="$HOME/Documents/Projects/lainchan_archiver/archives/" #EDIT THIS TO CHANGE SAVE DIRECTORY
 
 cd $archiveDir
 
