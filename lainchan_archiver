@@ -1,1 +1,16 @@
-Posting code ASAP, placeholder file.
+archiveDir="$HOME/Documents/Projects/lainchan_archiver/archives/"
+
+cd $archiveDir
+
+thread="$1"
+threadID=$(echo "$thread" | sed 's/http:\/\///' | cut -f 6 -d /)
+
+mkdir "$threadID"
+cd "${threadID}"
+
+echo -n "Getting thread..."
+echo
+
+wget -r -q -k -E -N -nd -np lainchan.org/*/src/,lainchan.org/*/thumb/ "" ${thread}
+
+echo "Done."
