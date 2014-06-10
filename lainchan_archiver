@@ -13,6 +13,15 @@ cd "${threadID}"
 echo -n "Getting thread..."
 echo
 
-wget -r -q -k -E -N -nd -np lainchan.org/*/src/,lainchan.org/*/thumb/ "" ${thread}
+while true; do
+  if wget --spider -q "${thread}"
+  then
+    wget -r -q -k -E -N -nd -np lainchan.org/*/src/,lainchan.org/*/thumb/ "" ${thread}
+  else
+    echo "404 Not Found"
+    break
+  fi
+done
 
 echo "Done."
+
